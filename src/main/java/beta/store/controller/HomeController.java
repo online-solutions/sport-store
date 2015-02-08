@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LinkController {
+public class HomeController {
 	
 	@RequestMapping(value="/")
 	public ModelAndView mainPage() {
@@ -21,9 +21,5 @@ public class LinkController {
 	public ModelAndView homePage() {
 		return new ModelAndView("home");
 	}
-	
-	@RequestMapping(value="/login")
-	public ModelAndView loginPage() {
-		return new ModelAndView("login");
-	}
+
 }
