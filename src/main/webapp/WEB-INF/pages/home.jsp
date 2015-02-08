@@ -59,13 +59,13 @@
 							<h4>Boys Football:</h4>
 							<div class="content-left-bottom-grids">
 								<div class="content-left-bottom-grid1">
-									<img src="images/foot-ball.jpg" title="football" />
+									<img src="resources/images/foot-ball.jpg" title="football" />
 									<h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
 									<span> Football</span>
 									<label>&#163; 375</label>
 								</div>
 								<div class="content-left-bottom-grid1">
-									<img src="images/jarse.jpg" title="jarse" />
+									<img src="resources/images/jarse.jpg" title="jarse" />
 									<h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
 									<span> Football</span>
 									<label>&#163; 375</label>
@@ -76,8 +76,8 @@
 				<div class="content-right">
 					<div class="product-grids">
 						<!--- start-rate---->
-							<script src="js/jstarbox.js"></script>
-							<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+							<script src="resources/js/jstarbox.js"></script>
+							<link rel="stylesheet" href="resources/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
 							<script type="text/javascript">
 								jQuery(function() {
 									jQuery('.starbox').each(function() {
@@ -115,7 +115,7 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product2.jpg" title="product-name" /></a>
+								<a href="#"><img src="resources/images/product2.jpg" title="product-name" /></a>
 								<p>
 								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
 								<span>Men's Firm-Ground Football Boot</span>
@@ -147,7 +147,7 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product1.jpg" title="product-name" /></a>
+								<a href="#"><img src="resources/images/product1.jpg" title="product-name" /></a>
 								<p>
 								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
 								<span>Men's Firm-Ground Football Boot</span>
@@ -179,7 +179,7 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product3.jpg" title="product-name" /></a>
+								<a href="#"><img src="resources/images/product3.jpg" title="product-name" /></a>
 								<p>
 								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
 								<span>Men's Firm-Ground Football Boot</span>
@@ -211,7 +211,7 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product4.jpg" title="product-name" /></a>
+								<a href="#"><img src="resources/images/product4.jpg" title="product-name" /></a>
 								<p>
 								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
 								<span>Men's Firm-Ground Football Boot</span>
@@ -243,7 +243,7 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product5.jpg" title="product-name" /></a>
+								<a href="#"><img src="resources/images/product5.jpg" title="product-name" /></a>
 								<p>
 								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
 								<span>Men's Firm-Ground Football Boot</span>
@@ -275,7 +275,7 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product6.jpg" title="product-name" /></a>
+								<a href="#"><img src="resources/images/product6.jpg" title="product-name" /></a>
 								<p>
 								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
 								<span>Men's Firm-Ground Football Boot</span>

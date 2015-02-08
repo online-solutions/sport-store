@@ -129,7 +129,7 @@
 							</div>
 							<div class="col1 men">
 								<div class="men-pic">
-									<img src="images/men.png" title="" />
+									<img src="resources/images/men.png" title="" />
 								</div>
 							</div>
 						</div>
@@ -215,7 +215,7 @@
 							</div>
 							<div class="col1 women">
 								<div class="women-pic">
-									<img src="images/women.png" title="" />
+									<img src="resources/images/women.png" title="" />
 								</div>
 							</div>
 						</div>
@@ -268,7 +268,7 @@
 							</div>
 							<div class="col1 kids">
 								<div class="kids-pic">
-									<img src="images/kids1.png" title="" />
+									<img src="resources/images/kids1.png" title="" />
 								</div>
 							</div>
 							<div class="col1"></div>
@@ -332,7 +332,7 @@
 							</div>
 							<div class="col1 sports">
 								<div class="sports-pic">
-									<img src="images/sport.png" title="" />
+									<img src="resources/images/sport.png" title="" />
 								</div>
 							</div>
 						</div>
@@ -412,7 +412,7 @@
 							</div>
 							<div class="col1 nike">
 								<div class="nike-pic">
-									<img src="images/nike.png" title="" />
+									<img src="resources/images/nike.png" title="" />
 								</div>
 							</div>
 						</div>
