@@ -6,7 +6,7 @@ E-commercial Java web application project
 Hi all,
 
 We are developing an online store by java web application. It's a free, opensource e-commercial project.
-If you want to join with us, contact: lite2210@gmail.com
+If you want to join with us, contact: yohananjr13@gmail.com
 You can down all project at all.
 
 ======
