@@ -1055,6 +1055,119 @@ h2.resp-accordion:first-child {
 	border-bottom: 4px solid #333;
 }
 /*---//login----*/
+
+/*---login-admin----*/
+.login-admin{
+	height: 35%;
+	width: 35%;
+	margin: auto;
+	border: 1px solid #EEE;
+	padding: 1em 1.5em;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+.login-admin h3{
+	color:#08080B;
+	text-align: center;
+	text-transform: capitalize;
+	line-height: 1.8em;
+}
+.login-left h3,.login-admin h3{
+	color: #E45D5D;
+	font-weight: 700;
+	font-size: 1em;
+	padding-bottom: 0.5em;
+}
+.login-left p,.login-admin p{
+	color: #08080B;
+	display: block;
+	font-size: 0.8em;
+	margin: 0 0 1.5em 0;
+	line-height: 1.8em;
+}
+.login-admin p{
+	margin:0;
+}
+.login-admin form{
+	padding:1em 0; 
+}
+.login-admin span{
+	color: #08080B;
+	font-weight: 700;
+	font-size: 0.875em;
+	padding-bottom: 0.2em;
+	display: block;
+	text-transform: uppercase;
+}
+.login-admin span label{
+	color: #E45D5D;
+	height: 10px;
+	width: 10px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 0.2em;
+}
+.login-admin input[type="text"], .login-admin input[type="password"]{
+	border: 1px solid #EEE;
+	outline-color: #E45D5D;
+	width: 96%;
+	font-size: 1em;
+	padding: 0.5em;
+}
+.login-admin form div{
+	padding: 0 0 0.5em 0;
+}
+.login-admin input[type="submit"]{
+	float: left;
+	margin: 1em 5em;
+	background: #E45D5D;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.7em 1.2em;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+}
+.login-admin input[type="submit"]:hover{
+	background: #1C1C20;
+	border-bottom: 4px solid #333;
+}
+.login-admin input[type="reset"]{
+	float: right;
+	margin: 1em 5em;
+	background: #1C1C20;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.7em 1.2em;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-bottom: 4px solid #333;
+}
+/*---//login-admin----*/
+
 /*---register----*/
 /*---//register----*/
 .register-top-grid h3,.register-bottom-grid h3{
