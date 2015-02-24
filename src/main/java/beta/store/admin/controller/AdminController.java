@@ -31,7 +31,7 @@ public class AdminController {
 		}
 
 		// logs exception
-		logger.error("This is Error message", new Exception("Testing"));
+//		logger.error("This is Error message", new Exception("Testing"));
 		
 		logger.debug("log in debug");
 		logger.debug("your email is: " + user.getEmail());
