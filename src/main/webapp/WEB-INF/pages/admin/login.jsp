@@ -12,7 +12,7 @@
 	
 	<div class="login-admin">
 					<h3>MANAGE SYSTEM</h3>
-					<form:form method="post" action="submitLogin" commandName="user" >
+					<form:form method="post" action="login" modelAttribute="user" >
 						<div>
 							<span>Email Address<label>*</label></span> <form:input path="email"/>
 						</div>

@@ -1,3 +1,4 @@
+<%@ include file="../include/taglib.jsp"%>
 <!DOCTYPE HTML>
 <html>
 <jsp:include page="../include/head.jsp"></jsp:include>
@@ -11,17 +12,18 @@
 			<div class="wrap">
 				<h1>CREATE AN ACCOUNT</h1>
 				<div class="register-grids">
-					<form>
+					<form:form method="POST" action="register" modelAttribute="user">
+					
 						<div class="register-top-grid">
 							<h3>PERSONAL INFORMATION</h3>
 							<div>
-								<span>First Name<label>*</label></span> <input type="text">
+								<span>First Name<label>*</label></span> <form:input path="firstName"/>
 							</div>
 							<div>
-								<span>Last Name<label>*</label></span> <input type="text">
+								<span>Last Name<label>*</label></span> <form:input path="lastName"/>
 							</div>
 							<div>
-								<span>Email Address<label>*</label></span> <input type="text">
+								<span>Email Address<label>*</label></span> <form:input path="email"/>
 							</div>
 							<div class="clear"></div>
 							<a class="news-letter" href="#"> <label class="checkbox"><input
@@ -34,16 +36,16 @@
 						<div class="register-bottom-grid">
 							<h3>LOGIN INFORMATION</h3>
 							<div>
-								<span>Password<label>*</label></span> <input type="text">
+								<span>Password<label>*</label></span> <form:password path="password"/>
 							</div>
 							<div>
-								<span>Confirm Password<label>*</label></span> <input type="text">
+								<span>Confirm Password<label>*</label></span> <form:password path="password"/>
 							</div>
 							<div class="clear"></div>
 						</div>
 						<div class="clear"></div>
 						<input type="submit" value="submit" />
-					</form>
+					</form:form>
 				</div>
 			</div>
 		</div>

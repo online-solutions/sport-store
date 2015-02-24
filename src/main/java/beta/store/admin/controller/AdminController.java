@@ -2,6 +2,7 @@ package beta.store.admin.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,16 +18,13 @@ public class AdminController {
 	private static final Logger logger = Logger
 			.getLogger(AdminController.class);
 
-	@RequestMapping(value = "/login")
-	public ModelAndView loginPage() {
-		ModelAndView view = new ModelAndView("admin/login");
-		view.addObject("user", new User());
-		return view;
+	@RequestMapping(value = "/login", method=RequestMethod.GET)
+	public ModelAndView loginForm() {
+		return new ModelAndView("admin/login", "user", new User());
 	}
 
-	@RequestMapping(value = "/submitLogin", method = RequestMethod.POST)
-	public ModelAndView submitLoginPage(@RequestParam("email") String email,
-			@RequestParam("password") String password) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ModelAndView loginSubmit(@ModelAttribute User user) {
 		// logs debug message
 		if (logger.isDebugEnabled()) {
 			logger.debug("getWelcome is executed!");
@@ -36,7 +34,7 @@ public class AdminController {
 		logger.error("This is Error message", new Exception("Testing"));
 		
 		logger.debug("log in debug");
-		logger.debug(email);
+		logger.debug("your email is: " + user.getEmail());
 		
 
 		return new ModelAndView("redirect:home");
