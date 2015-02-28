@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import beta.store.model.User;
-import beta.store.service.UserService;
+import beta.store.service.IUserService;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 	
 	private static final Logger log = Logger.getLogger(LoginController.class);
 	
@@ -34,6 +34,6 @@ public class LoginController {
 		userService.addUser(user);
 		log.info(user.getEmail());
 		
-		return new ModelAndView("login/register", "user", user);
+		return new ModelAndView("login/register_success", "user", user);
 	}
 }

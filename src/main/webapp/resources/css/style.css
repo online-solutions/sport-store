@@ -1192,7 +1192,7 @@ h2.resp-accordion:first-child {
 	vertical-align: top;
 	margin-left: 0.2em;
 }
-.register-top-grid input[type="text"],.register-bottom-grid input[type="text"]{
+.register-top-grid input[type="text"],.register-bottom-grid input[type="password"]{
 	border: 1px solid #D6D6D6;
 	outline-color: #E45D5D;
 	width: 96%;

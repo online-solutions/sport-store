@@ -39,7 +39,7 @@
 								<span>Password<label>*</label></span> <form:password path="password"/>
 							</div>
 							<div>
-								<span>Confirm Password<label>*</label></span> <form:password path="password"/>
+								<span>Confirm Password<label>*</label></span> <input type="password" >
 							</div>
 							<div class="clear"></div>
 						</div>
