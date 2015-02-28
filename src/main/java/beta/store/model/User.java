@@ -1,5 +1,6 @@
 package beta.store.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,9 +15,14 @@ public class User {
 	private int id;
 	private String email;
 	private String password;
+	@Column(name = "first_name")
 	private String firstName;
+	@Column(name = "last_name")
 	private String lastName;
 	private String level;
+	
+	private String role;
+	
 
 	public int getId() {
 		return id;
@@ -64,6 +70,14 @@ public class User {
 
 	public void setLevel(String level) {
 		this.level = level;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

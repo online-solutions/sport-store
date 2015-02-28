@@ -1,7 +1,15 @@
 <!DOCTYPE HTML>
 <html>
-<jsp:include page="include/head.jsp"></jsp:include>
-	<body>
-	Admin home
-	</body>
+<body>
+abc
+	<div class="ad-home">
+		<div class="ad-header">
+		<p>Store Management</p>
+			<div class="ad-main">
+				<div class="ad-left"></div>
+				<div class="ad-right"></div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

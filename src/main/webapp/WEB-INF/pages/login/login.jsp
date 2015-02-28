@@ -25,7 +25,7 @@
 							<span>Email Address<label>*</label></span> <input type="text">
 						</div>
 						<div>
-							<span>Password<label>*</label></span> <input type="text">
+							<span>Password<label>*</label></span> <input type="password">
 						</div>
 						<a class="forgot" href="#">Forgot Your Password?</a> <input
 							type="submit" value="Login" />

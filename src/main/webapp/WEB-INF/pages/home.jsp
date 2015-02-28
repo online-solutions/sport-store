@@ -6,6 +6,7 @@
 	<!---start-wrap---->
 		<!-- header moved -->
 		<jsp:include page="include/header.jsp"></jsp:include>
+		
 		<!-- image slider moved -->
 		<jsp:include page="include/slider.jsp"></jsp:include>
 
