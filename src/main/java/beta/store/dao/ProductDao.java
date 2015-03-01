@@ -4,14 +4,15 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import static org.hibernate.criterion.Restrictions.*;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import beta.store.model.Menu;
+import beta.store.model.Product;
 
 @Repository
-public class MenuDao implements IMenuDao {
+public class ProductDao implements IProductDao {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -19,22 +20,16 @@ public class MenuDao implements IMenuDao {
 	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	
-	@Override
-	public void addMenu(Menu menu) {
-		getCurrentSession().save(menu);
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Menu> getMenus() {
-		return getCurrentSession().createCriteria(Menu.class).list();
+	public List<Product> getProductByMenu(Menu menu) {
+		return getCurrentSession().createCriteria(Product.class).add(Restrictions.eq("menu", menu)).list();
 	}
 
 	@Override
-	public Menu getMenuByLink(String link) {
-		return (Menu) getCurrentSession().createCriteria(Menu.class).add(eq("link", link)).uniqueResult();
+	public void addProduct(Product product) {
+		getCurrentSession().save(product);
 	}
 
-	
 }

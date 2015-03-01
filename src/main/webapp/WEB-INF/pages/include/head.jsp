@@ -1,14 +1,15 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 		<title>Sport Store :: Home</title>
-		<link href="resources/css/style.css" rel='stylesheet' type='text/css' />
+		<link href="<c:url value="/resources/css/style.css" />" rel='stylesheet' type='text/css' />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!----webfonts---->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!----//webfonts---->
 		<!----start-alert-scroller---->
-		<script src="resources/js/jquery.min.js"></script>
-		<script type="text/javascript" src="resources/js/jquery.easy-ticker.js"></script>
+		<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/jquery.easy-ticker.js" />"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$('#demo').hide();
@@ -17,15 +18,15 @@
 		</script>
 		<!----start-alert-scroller---->
 		<!-- start menu -->
-		<link href="resources/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-		<script type="text/javascript" src="resources/js/megamenu.js"></script>
+		<link href="<c:url value="/resources/css/megamenu.css" />" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="<c:url value="/resources/js/megamenu.js" />"></script>
 		<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-		<script src="resources/js/menu_jquery.js"></script>
+		<script src="<c:url value="/resources/js/menu_jquery.js" />"></script>
 		<!-- //End menu -->
 		<!---slider---->
-		<link rel="stylesheet" href="resources/css/slippry.css">
-		<script src="resources/js/jquery-ui.js" type="text/javascript"></script>
-		<script src="resources/js/scripts-f0e4e0c2.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="<c:url value="/resources/css/slippry.css" />">
+		<script src="<c:url value="/resources/js/jquery-ui.js" />" type="text/javascript"></script>
+		<script src="<c:url value="/resources/js/scripts-f0e4e0c2.js" />" type="text/javascript"></script>
 		<script>
 			  jQuery('#jquery-demo').slippry({
 			  // general elements & wrapper
@@ -38,8 +39,8 @@
 			});
 		</script>
 		<!----start-pricerage-seletion---->
-		<script type="text/javascript" src="resources/js/jquery-ui.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui.css">
+		<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui.min.js" />"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/jquery-ui.css" />">
 		<script type='text/javascript'>//<![CDATA[ 
 			$(window).load(function(){
 			 $( "#slider-range" ).slider({
@@ -56,8 +57,8 @@
 		</script>
 		<!----//End-pricerage-seletion---->
 		<!---move-top-top---->
-		<script type="text/javascript" src="resources/js/move-top.js"></script>
-		<script type="text/javascript" src="resources/js/easing.js"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/move-top.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/easing.js" />"></script>
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		

@@ -16,13 +16,8 @@ public class HomeController {
 	
 	private final Logger log = Logger.getLogger(HomeController.class);
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value={"/", "/index"})
 	public ModelAndView mainPage() {
-		return new ModelAndView("index");
-	}
-	
-	@RequestMapping(value="/index")
-	public ModelAndView indexPage() {
 		return new ModelAndView("index");
 	}
 	
@@ -35,5 +30,5 @@ public class HomeController {
 		mv.addObject("menus", menuService.getMenus());
 		return mv;
 	}
-
+	
 }

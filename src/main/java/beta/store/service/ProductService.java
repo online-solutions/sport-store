@@ -6,29 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import beta.store.dao.IMenuDao;
+import beta.store.dao.IProductDao;
 import beta.store.model.Menu;
+import beta.store.model.Product;
 
 @Service
 @Transactional
-public class MenuService implements IMenuService {
+public class ProductService implements IProductService {
 	
 	@Autowired
-	private IMenuDao menuDao;
+	private IProductDao productDao;
 
 	@Override
-	public List<Menu> getMenus() {
-		return menuDao.getMenus();
+	public void addProduct(Product product) {
+		productDao.addProduct(product);
 	}
 
 	@Override
-	public void addMenu(Menu menu) {
-		menuDao.addMenu(menu);
-	}
-
-	@Override
-	public Menu getMenuByLink(String link) {
-		return menuDao.getMenuByLink(link);
+	public List<Product> getProductByMenu(Menu menu) {
+		return productDao.getProductByMenu(menu);
 	}
 
 }

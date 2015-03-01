@@ -83,7 +83,7 @@
 			<ul class="megamenu skyblue">
 			<li class="active grid"><a class="color1" href="home">home</a></li>
 				<c:forEach var="menu" items="${menus}">
-				<li class="grid"><a class="color2" href="${menu.link}">${menu.name}</a></li>
+				<li class="grid"><a class="color2" href="product/${menu.link}">${menu.name}</a></li>
 				</c:forEach>
 					
 				
