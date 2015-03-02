@@ -25,7 +25,6 @@ public class Product {
 	@JoinColumn(name = "menu_id", nullable = false)
 	private Menu menu;
 	private String kind;
-	private int amount;
 	// price in USB
 	private long price;
 	private String color;
@@ -69,12 +68,6 @@ public class Product {
 	}
 	public void setKind(String kind) {
 		this.kind = kind;
-	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
 	}
 	public long getPrice() {
 		return price;

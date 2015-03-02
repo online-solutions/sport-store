@@ -1,3 +1,4 @@
+<%@ include file="../include/taglib.jsp"%>
 <!DOCTYPE HTML>
 <html>
 <jsp:include page="../include/head.jsp"></jsp:include>
@@ -8,52 +9,7 @@
 	<!--- start-content---->
 	<div class="content product-box-main">
 			<div class="wrap">
-				<div class="content-left">
-					<div class="content-left-top-brands">
-						<h3>Categories</h3>
-						<ul>
-							<li><a href="#">ALL</a></li>
-							<li><a href="#">WOMEN</a></li>
-							<li><a href="#">NEW ARRIVALS</a></li>
-							<li><a href="#">TRENDS</a></li>
-							<li><a href="#">BOYS</a></li>
-							<li><a href="#">GIRLS</a></li>
-							<li><a href="#">SALE</a></li>
-						</ul>
-					</div>
-						<div class="content-left-top-grid">
-							<div class="content-left-price-selection content-left-top-brands-prices">
-								<h4>Select Price:</h4>
-								<div class="price-selection-tree">
-									<span class="col_checkbox">
-										<input id="10" class="css-checkbox10" type="checkbox">
-										<label class="normal"><i for="10" name="demo_lbl_10"  class="css-label10"> </i> 400</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="11" class="css-checkbox11" type="checkbox">
-										<label class="active1"><i for="11" name="demo_lbl_11"  class="css-label11"> </i>350</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="12" class="css-checkbox12" type="checkbox">
-										<label class="normal"><i for="12" name="demo_lbl_12"  class="css-label12"> </i> 300</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="13" class="css-checkbox13" type="checkbox">
-										<label class="normal"><i for="13" name="demo_lbl_13"  class="css-label13"> </i>250</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="14" class="css-checkbox14" type="checkbox">
-										<label class="normal"><i for="14" name="demo_lbl_14"  class="css-label14"> </i> 200</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="15" class="css-checkbox15" type="checkbox">
-										<label class="normal"><i for="15" name="demo_lbl_15"  class="css-label15"> </i>150</label>
-									</span>
-								</div>
-								
-						</div>
-						</div>
-				</div>
+				<jsp:include page="content/left_menu.jsp"></jsp:include>
 				<div class="content-right product-box">
 					<div class="product-box-head">
 							<div class="product-box-head-left">
@@ -72,8 +28,10 @@
 					</div>
 					<div class="product-grids">
 						<!--- start-rate---->
-							<script src="js/jstarbox.js"></script>
-							<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+							<script src="<c:url value="/resources/js/jstarbox.js" />"></script>
+							
+							<link rel="stylesheet" href="<c:url value="/resources/css/jstarbox.css" />" type="text/css" media="screen" charset="utf-8" />
+							
 							<script type="text/javascript">
 								jQuery(function() {
 									jQuery('.starbox').each(function() {
@@ -96,7 +54,15 @@
 								});
 							</script>
 							<!---//End-rate---->
-						<div class="product-grid fade" onclick="location.href='details.html';">
+						
+						
+						
+						
+						<c:forEach var="product" varStatus="loop" items="${listProduct}">
+							
+						
+						
+						<div class="product-grid fade <c:if test="${(loop.index + 1)%3 == 0}">last-grid</c:if>" onclick="location.href='${product.id}';">
 							<div class="product-grid-head">
 								<ul class="grid-social">
 									<li><a class="facebook" href="#"><span> </span></a></li>
@@ -105,14 +71,15 @@
 									<div class="clear"> </div>
 								</ul>
 								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
+									<div class="starbox small ghosting"> </div> <span> (${product.totalReview})</span>
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="images/product2.jpg" title="product-name" /></a>
+								<a href="#"><img src="<c:url value="/resources/images/product${product.id}.jpg" />" title="product-name" style="height: 150px; width: 240px;"/></a>
 								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
+								<!-- <a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a> -->
+								<a href="#"><small>${product.name}</small></a>
+								<span>${product.manufacturer}</span>
 								</p>
 							</div>
 							<div class="product-info">
@@ -120,7 +87,7 @@
 									<a href="details.html">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.html">&#163; 380</a>
+									<a href="details.html">&#163; ${product.price}</a>
 								</div>
 								<div class="clear"> </div>
 							</div>
@@ -128,262 +95,11 @@
 								<span> </span>
 							</div>
 						</div>
-						<div class="product-grid fade" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product1.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 375</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade last-grid" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product3.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 350</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product4.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 370</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product5.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 355</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade last-grid" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product6.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 390</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product4.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 370</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade" onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product5.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 355</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="product-grid fade last-grid"  onclick="location.href='details.html';">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="images/product6.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a>
-								<span>Men's Firm-Ground Football Boot</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#163; 390</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
+						</c:forEach>
+						
+						
+						
+						
 						<div class="clear"> </div>
 					</div>
 					<!----start-load-more-products---->

@@ -40,16 +40,20 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/makedata")
-	public void makeSampleData(){
+	public ModelAndView makeSampleData(){
 		Menu menu = new Menu();
 		menu.setName("men");
 		menu.setLink("men");
 		
-		Product p = new Product();
-		p.setName("product name 1");
-		p.setManufacturer("MANUFACTURER");
-		p.setMenu(menuService.getMenuByLink("men"));
 		
-		producService.addProduct(p);
+		for(int i=0; i< 10; i++){
+			Product p = new Product();
+			p.setName("product name " + (i + 10));
+			p.setManufacturer("MANUFACTURER" + (i + 10));
+			p.setMenu(menuService.getMenuByLink("men"));
+			producService.addProduct(p);
+		}
+		
+		return new ModelAndView("sample");
 	}
 }
