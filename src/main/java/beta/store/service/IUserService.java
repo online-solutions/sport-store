@@ -5,5 +5,6 @@ import beta.store.model.User;
 public interface IUserService {
 	
 	public void addUser(User user);
+	public User getUser(User user);
 
 }

@@ -19,4 +19,11 @@ public class UserService implements IUserService {
 		userDao.addUser(user);
 	}
 
+
+	@Override
+	public User getUser(User user) {
+		// TODO Auto-generated method stub
+		return userDao.getUserByAttribute(user);
+	}
+
 }

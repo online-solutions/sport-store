@@ -1,3 +1,4 @@
+<%@ include file="../include/taglib.jsp"%>
 <!DOCTYPE HTML>
 <html>
 <jsp:include page="../include/head.jsp"></jsp:include>
@@ -20,16 +21,17 @@
 				<div class="login-right">
 					<h3>REGISTERED CUSTOMERS</h3>
 					<p>If you have an account with us, please log in.</p>
-					<form>
+					${message}
+					<form:form method="POST" action="login" modelAttribute="user">
 						<div>
-							<span>Email Address<label>*</label></span> <input type="text">
+							<span>Email Address<label>*</label></span> <form:input path="email"/>
 						</div>
 						<div>
-							<span>Password<label>*</label></span> <input type="password">
+							<span>Password<label>*</label></span> <form:password path="password"/>
 						</div>
 						<a class="forgot" href="#">Forgot Your Password?</a> <input
 							type="submit" value="Login" />
-					</form>
+					</form:form>
 				</div>
 				<div class="clear"></div>
 			</div>

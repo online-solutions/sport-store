@@ -25,7 +25,21 @@ public class LoginController {
 	
 	@RequestMapping(value="/login")
 	public ModelAndView loginPage(){
-		return new ModelAndView("login/login", "menus", menuService.getMenus());
+		ModelAndView mv = new ModelAndView("login/login");
+		mv.addObject("user", new User());
+		mv.addObject("menus",menuService.getMenus());
+		 return mv;
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public ModelAndView loginPage(@ModelAttribute User user){
+		if(userService.getUser(user)!=null){
+			return new ModelAndView("login/login_success");
+		}
+		ModelAndView mv = new ModelAndView("login/login");
+		mv.addObject("message", "wrong email or password");
+		mv.addObject("menus",menuService.getMenus());
+		 return mv;
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
