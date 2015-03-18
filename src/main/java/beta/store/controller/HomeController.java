@@ -1,11 +1,14 @@
 package beta.store.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import beta.store.model.User;
 import beta.store.service.IMenuService;
 
 @Controller
@@ -22,12 +25,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/home")
-	public ModelAndView homePage() {
+	public ModelAndView homePage(HttpSession session) {
 		ModelAndView mv = new ModelAndView("home");
 //		Menu menu = new Menu();
 //		menu.setLink("def");
 //		menuService.addMenu(menu);
 		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("currentUser", (User) session.getAttribute("currentUser"));
 		return mv;
 	}
 	

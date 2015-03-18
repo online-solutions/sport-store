@@ -22,7 +22,7 @@
 					<h3>REGISTERED CUSTOMERS</h3>
 					<p>If you have an account with us, please log in.</p>
 					${message}
-					<form:form method="POST" action="login" modelAttribute="user">
+					<form:form method="POST" action="login?from=${param['from']}" modelAttribute="user">
 						<div>
 							<span>Email Address<label>*</label></span> <form:input path="email"/>
 						</div>

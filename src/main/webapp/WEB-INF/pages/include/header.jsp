@@ -50,8 +50,16 @@
 			</div>
 			<div class="top-header-right">
 				<ul>
-					<li><a href="login">Login</a><span> </span></li>
-					<li><a href="register">Join</a></li>
+				<c:choose>
+				    <c:when test="${empty currentUser}">
+				       	<li><a href="login?from=${requestScope['javax.servlet.forward.request_uri']}">Login</a><span> </span></li>
+						<li><a href="register">Join</a></li>
+				    </c:when>
+				    <c:otherwise>
+				        <li><a href="profile">${currentUser.displayName}</a><span> </span></li>
+						<li><a href="logout">Log Out</a></li>
+				    </c:otherwise>
+				</c:choose>
 				</ul>
 			</div>
 			<div class="clear"></div>

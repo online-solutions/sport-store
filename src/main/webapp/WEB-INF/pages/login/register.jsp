@@ -10,6 +10,13 @@
 	<div class="content login-box">
 		<div class="login-main">
 			<div class="wrap">
+			<c:if test="${not empty currentUser }">
+				
+			</c:if>
+			
+			<c:choose>
+			    <c:when test="${empty currentUser}">
+			    
 				<h1>CREATE AN ACCOUNT</h1>
 				<div class="register-grids">
 					<form:form method="POST" action="register" modelAttribute="user">
@@ -47,6 +54,13 @@
 						<input type="submit" value="submit" />
 					</form:form>
 				</div>
+			
+				</c:when>
+			    <c:otherwise>
+			        You're already logged on. 
+			        Please <a href="<c:url value='/home'/>">click here</a> to go to home page.
+			    </c:otherwise>
+			</c:choose>
 			</div>
 		</div>
 	</div>

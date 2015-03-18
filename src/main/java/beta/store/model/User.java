@@ -22,6 +22,7 @@ public class User {
 	private String level;
 	
 	private String role;
+	private String displayName;
 	
 
 	public int getId() {
@@ -78,6 +79,14 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 
 }
