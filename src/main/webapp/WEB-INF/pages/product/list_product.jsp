@@ -57,10 +57,7 @@
 						
 						
 						
-						
 						<c:forEach var="product" varStatus="loop" items="${listProduct}">
-							
-						
 						
 						<div class="product-grid fade <c:if test="${(loop.index + 1)%3 == 0}">last-grid</c:if>" onclick="location.href='${product.id}';">
 							<div class="product-grid-head">
@@ -84,7 +81,7 @@
 							</div>
 							<div class="product-info">
 								<div class="product-info-cust">
-									<a href="details.html">Details</a>
+									<a href="<c:url value="/product/men/${product.id}" />">Details</a>
 								</div>
 								<div class="product-info-price">
 									<a href="details.html">&#163; ${product.price}</a>

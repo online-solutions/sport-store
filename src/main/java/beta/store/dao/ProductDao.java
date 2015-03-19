@@ -23,13 +23,18 @@ public class ProductDao implements IProductDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> getProductByMenu(Menu menu) {
+	public List<Product> getProductsByMenu(Menu menu) {
 		return getCurrentSession().createCriteria(Product.class).add(Restrictions.eq("menu", menu)).list();
 	}
 
 	@Override
 	public void addProduct(Product product) {
 		getCurrentSession().save(product);
+	}
+
+	@Override
+	public Product getProductById(int productId) {
+		return (Product) getCurrentSession().get(Product.class, productId);
 	}
 
 }

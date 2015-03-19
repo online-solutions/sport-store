@@ -23,8 +23,13 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public List<Product> getProductByMenu(Menu menu) {
-		return productDao.getProductByMenu(menu);
+	public List<Product> getProductsByMenu(Menu menu) {
+		return productDao.getProductsByMenu(menu);
+	}
+
+	@Override
+	public Product getProductById(int productId) {
+		return productDao.getProductById(productId);
 	}
 
 }

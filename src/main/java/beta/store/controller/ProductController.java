@@ -31,12 +31,21 @@ public class ProductController {
 		if(menu != null){
 			ModelAndView mv = new ModelAndView("product/list_product");
 			mv.addObject("menus", menuService.getMenus());
-			mv.addObject("listProduct", producService.getProductByMenu(menu));
+			mv.addObject("listProduct", producService.getProductsByMenu(menu));
 			return mv;
 		} else {
 			log.debug("menu in db is null, redirect to 404");
 		}
 		return null;
+	}
+	
+	@RequestMapping(value = "/{link}/{productId}")
+	public ModelAndView productDetailPage(@PathVariable("link") String link, 
+			@PathVariable("productId") int productId){
+		ModelAndView mv = new ModelAndView("product/product_detail");
+		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("product", producService.getProductById(productId));
+		return mv;
 	}
 	
 	@RequestMapping(value = "/makedata")

@@ -7,5 +7,6 @@ import beta.store.model.Product;
 
 public interface IProductService {
 	public void addProduct(Product product);
-	public List<Product> getProductByMenu(Menu menu);
+	public List<Product> getProductsByMenu(Menu menu);
+	public Product getProductById(int productId);
 }
