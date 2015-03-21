@@ -68,4 +68,31 @@
 			});
 		</script>
 		<!---//move-top-top---->
+		
+		
+<!-- 		use for slide product in product detail -->
+		<!-- Owl Carousel Assets -->
+		<link href="<c:url value="/resources/css/owl.carousel.css" />" rel="stylesheet">
+		<script src="js/jquery-1.9.1.min.js"></script> 
+		     <!-- Owl Carousel Assets -->
+		    <!-- Prettify -->
+		    <script src="<c:url value="/resources/js/owl.carousel.js" />"></script>
+		        <script>
+		    $(document).ready(function() {
+		
+		      $("#owl-demo").owlCarousel({
+		        items : 3,
+		        lazyLoad : true,
+		        autoPlay : true,
+		        navigation : true,
+			    navigationText : ["",""],
+			    rewindNav : false,
+			    scrollPerPage : false,
+			    pagination : false,
+    			paginationNumbers: false,
+		      });
+		
+		    });
+		    </script>
+		   <!-- //Owl Carousel Assets -->
 	</head>

@@ -72,10 +72,10 @@
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href="#"><img src="<c:url value="/resources/images/product${product.id}.jpg" />" title="product-name" style="height: 150px; width: 240px;"/></a>
+								<a href="<c:url value="/product/men/${product.id}" />"><img src="<c:url value="/resources/images/product${product.id}.jpg" />" title="product-name" style="height: 150px; width: 240px;"/></a>
 								<p>
 								<!-- <a href="#"><small>Nike</small> HYPERVENOM <small>Phantom</small> FG</a> -->
-								<a href="#"><small>${product.name}</small></a>
+								<a href="<c:url value="/product/men/${product.id}" />"><small>${product.name}</small></a>
 								<span>${product.manufacturer}</span>
 								</p>
 							</div>
