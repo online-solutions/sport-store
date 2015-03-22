@@ -27,7 +27,7 @@ public class MenuDao implements IMenuDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Menu> getMenus() {
+	public List<Menu> getAllMenus() {
 		return getCurrentSession().createCriteria(Menu.class).list();
 	}
 

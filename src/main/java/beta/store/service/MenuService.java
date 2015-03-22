@@ -17,8 +17,8 @@ public class MenuService implements IMenuService {
 	private IMenuDao menuDao;
 
 	@Override
-	public List<Menu> getMenus() {
-		return menuDao.getMenus();
+	public List<Menu> getAllMenus() {
+		return menuDao.getAllMenus();
 	}
 
 	@Override

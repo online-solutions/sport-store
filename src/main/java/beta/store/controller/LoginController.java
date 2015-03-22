@@ -34,7 +34,7 @@ public class LoginController {
 	public ModelAndView loginPage() {
 		ModelAndView mv = new ModelAndView("login/login");
 		mv.addObject("user", new User());
-		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("menus", menuService.getAllMenus());
 		return mv;
 	}
 
@@ -51,14 +51,14 @@ public class LoginController {
 		
 		ModelAndView mv = new ModelAndView("login/login");
 		mv.addObject("message", "wrong email or password");
-		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("menus", menuService.getAllMenus());
 		return mv;
 	}
 
 	@RequestMapping(value = "/login-success", method = RequestMethod.GET)
 	public ModelAndView loginSuccess(@RequestParam("from") String from) {
 		ModelAndView mv = new ModelAndView("login/login_success");
-		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("menus", menuService.getAllMenus());
 		return mv;
 	}
 
@@ -67,7 +67,7 @@ public class LoginController {
 		
 		ModelAndView mv = new ModelAndView("login/register");
 		mv.addObject("user", new User());
-		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("menus", menuService.getAllMenus());
 		mv.addObject("currentUser", session.getAttribute("currentUser"));
 		return mv;
 	}
@@ -76,14 +76,14 @@ public class LoginController {
 	public ModelAndView registerSubmit(@ModelAttribute User user) {
 		userService.addUser(user);
 		return new ModelAndView("login/register_success", "menus",
-				menuService.getMenus());
+				menuService.getAllMenus());
 	}
 
 	@RequestMapping(value = "/logout")
 	public ModelAndView logoutPage(HttpSession session) {
 		session.invalidate();
 		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("menus", menuService.getAllMenus());
 		return mv;
 	}
 }
