@@ -1,8 +1,23 @@
 <%@ include file="../include/taglib.jsp"%>
+<fmt:setLocale value="en_US"/>
 <!DOCTYPE HTML>
 <html>
 <jsp:include page="../include/head.jsp"></jsp:include>
 <body>
+	<script>
+	$(function(){
+		$( "#add_to_cart" ).click(function() {
+			$.ajax({
+				type: "POST",
+				url: "<c:url value="/cart/add" />", 
+				data: ({productId : 1,
+					count: 2}),
+				success: function(result){
+		        console.log(result);
+		    }});
+			});
+		});
+	</script>
 	<!---start-wrap---->
 	<jsp:include page="../include/header.jsp"></jsp:include>
 
@@ -79,16 +94,30 @@
 					</div>
 					<div class="details-left-info">
 						<div class="details-right-head">
-						<h1>Product Name Goes Here</h1>
+						<h1>${product.name}</h1>
 						<ul class="pro-rate">
 							<li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
 							<li><a href="#">0 Review(s) Add Review</a></li>
 						</ul>
-						<p class="product-detail-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+						<p class="product-detail-info">${product.description}</p>
 						<a class="learn-more" href="#"><h3>MORE DETAILS</h3></a>
 						<div class="product-more-details">
 							<ul class="price-avl">
-								<li class="price"><span>$153.39</span><label>$145.72</label></li>
+								<li class="price">
+								<c:choose>
+								    <c:when test="${empty product.discount}">
+								        <label>
+										<fmt:formatNumber value="${product.price}" type="currency"/>
+										</label>
+								    </c:when>
+								    <c:otherwise>
+								        <span><fmt:formatNumber value="${product.price}" type="currency"/></span>
+								        <label>
+										<fmt:formatNumber value="${product.secondPrice}" type="currency"/>
+										</label>
+								    </c:otherwise>
+								</c:choose>
+								</li>
 								<li class="stock"><i>In stock</i></li>
 								<div class="clear"> </div>
 							</ul>
@@ -115,7 +144,7 @@
 									<option>6</option>
 								</select>
 							</ul>
-							<input type="button" value="add to cart" />
+							<input type="button" value="add to cart" id="add_to_cart"/>
 							<ul class="product-share">
 								<h3>All so Share On</h3>
 								<ul>

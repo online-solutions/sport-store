@@ -74,7 +74,7 @@
 				</form>
 			</div>
 			<div class="mid-grid-right">
-				<a class="logo" href="index.html"><span> </span></a>
+				<a class="logo" href="<c:url value="/" />"><span> </span></a>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -89,9 +89,9 @@
 		<div class="wrap">
 			<!-- start header menu -->
 			<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="home">home</a></li>
+			<li class="active grid"><a class="color1" href="<c:url value="/" />">home</a></li>
 				<c:forEach var="menu" items="${menus}">
-				<li class="grid"><a class="color2" href="product/${menu.link}">${menu.name}</a></li>
+				<li class="grid"><a class="color2" href="<c:url value="/product/${menu.link}" />">${menu.name}</a></li>
 				</c:forEach>
 					
 				

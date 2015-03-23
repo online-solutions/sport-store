@@ -29,7 +29,7 @@ public class ProductDao implements IProductDao {
 
 	@Override
 	public void addProduct(Product product) {
-		getCurrentSession().save(product);
+		getCurrentSession().saveOrUpdate(product);;
 	}
 
 	@Override

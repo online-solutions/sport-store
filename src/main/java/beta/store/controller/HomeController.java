@@ -27,10 +27,7 @@ public class HomeController {
 	@RequestMapping(value="/home")
 	public ModelAndView homePage(HttpSession session) {
 		ModelAndView mv = new ModelAndView("home");
-//		Menu menu = new Menu();
-//		menu.setLink("def");
-//		menuService.addMenu(menu);
-		mv.addObject("menus", menuService.getMenus());
+		mv.addObject("menus", menuService.getAllMenus());
 		mv.addObject("currentUser", (User) session.getAttribute("currentUser"));
 		return mv;
 	}

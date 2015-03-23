@@ -25,8 +25,10 @@ public class Product {
 	@JoinColumn(name = "menu_id", nullable = false)
 	private Menu menu;
 	private String kind;
-	// price in USB
-	private long price;
+	// price in USD
+	private Double price;
+	@Column( name="second_price")
+	private Double secondPrice;
 	private String color;
 	@ElementCollection
 	@CollectionTable(name = "product_images",joinColumns=@JoinColumn(name="product_id"))
@@ -36,6 +38,10 @@ public class Product {
 	@Column( name="total_review")
 	private int totalReview;
 	private String manufacturer;
+	private int count;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "discount_id", nullable = true)
+	private Discount discount;
 	
 	public int getId() {
 		return id;
@@ -69,11 +75,18 @@ public class Product {
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
-	public long getPrice() {
+	
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(long price) {
+	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public Double getSecondPrice() {
+		return secondPrice;
+	}
+	public void setSecondPrice(Double secondPrice) {
+		this.secondPrice = secondPrice;
 	}
 	public String getColor() {
 		return color;
@@ -104,6 +117,18 @@ public class Product {
 	}
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public Discount getDiscount() {
+		return discount;
+	}
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
 	}
 	
 }
