@@ -10,7 +10,7 @@
 			$.ajax({
 				type: "POST",
 				url: "<c:url value="/cart/add" />", 
-				data: ({productId : 1,
+				data: ({productId : "${product.id}",
 					count: 2}),
 				success: function(result){
 		        console.log(result);
