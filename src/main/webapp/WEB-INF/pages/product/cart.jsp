@@ -11,14 +11,18 @@
 			<div class="wrap">
 			// TODO: List product with quality here -> table view
 			 <br/><br/>
-			<c:if test="${not empty listProduct}">
-			<c:forEach var="mapProduct" items="${listProduct}">
-				<c:forEach var="entry" items="${mapProduct}">
-				  Product name: <c:out value="${entry.key.name}"/><br/>
-				  Count: <c:out value="${entry.value}"/>
-				</c:forEach>
-			</c:forEach>
-			</c:if>
+			
+			<c:choose>
+			    <c:when test="${not empty listProduct}">
+					<c:forEach var="product" items="${listProduct}">
+						Product name: <c:out value="${product.key.name}"/><br/>
+						Count: <c:out value="${product.value}"/>
+					</c:forEach>
+			    </c:when>
+			    <c:otherwise>
+			        Empty cart
+			    </c:otherwise>
+				</c:choose>
 			</div>
 			</div>
 		

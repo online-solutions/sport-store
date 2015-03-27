@@ -38,35 +38,34 @@ public class CartController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public @ResponseBody String addProductToSession(@RequestParam int productId, 
 			@RequestParam int count, HttpSession session){
-		List<HashMap<Product, Integer>> sessionListProduct = new ArrayList<HashMap<Product,Integer>>();
-		HashMap<Product, Integer> currentProductWithQuality = new HashMap<Product, Integer>();
+		Map<Product, Integer> sessionListProduct = new HashMap<Product, Integer>();
 		
 		// TODO: get listProduct from session here
-		sessionListProduct.add(currentProductWithQuality);
-		currentProductWithQuality.put(productService.getProductById(productId), count);
+		sessionListProduct.put(productService.getProductById(productId), count);
 		session.setAttribute(CART_SESSION, sessionListProduct);
 		log.debug("productId = " + productId + "count = " + count);
 		return "true";
 	}
 	
-	@RequestMapping(value={"list","/"}, method=RequestMethod.GET)
+	@RequestMapping(value={"list","/", ""}, method=RequestMethod.GET)
 	public ModelAndView showAllProductInCart(HttpSession session){
 		ModelAndView mv = new ModelAndView("product/cart");
-		List<HashMap<Product, Integer>> sessionListProduct = new ArrayList<HashMap<Product,Integer>>();
-		sessionListProduct = (List<HashMap<Product, Integer>>) session.getAttribute(CART_SESSION);
+		Map<Product, Integer> sessionListProduct = new HashMap<Product,Integer>();
+		sessionListProduct = (HashMap<Product, Integer>) session.getAttribute(CART_SESSION);
 		
-		if(sessionListProduct !=null){
-			for(HashMap<Product, Integer> currentProductWithQuality: sessionListProduct){
-				Iterator iterator = currentProductWithQuality.entrySet().iterator();
-				while (iterator.hasNext()) {
-					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					System.out.println("The key is: " + ((Product) mapEntry.getKey()).getName()
-						+ ",value is :" + mapEntry.getValue());
-				}
+		// use for debug only
+		if(sessionListProduct != null){
+			Iterator iterator = sessionListProduct.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Map.Entry mapEntry = (Map.Entry) iterator.next();
+				System.out.println("The key is: " + ((Product) mapEntry.getKey()).getName()
+					+ ",value is :" + mapEntry.getValue());
 			}
 		}
+		
 		mv.addObject("menus", menuService.getAllMenus());
 		mv.addObject("listProduct", sessionListProduct);
+		
 		return mv;
 	}
 }
