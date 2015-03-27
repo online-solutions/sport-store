@@ -39,6 +39,8 @@ public class CartController {
 	public @ResponseBody String addProductToSession(@RequestParam int productId, 
 			@RequestParam int count, HttpSession session){
 		Map<Product, Integer> sessionListProduct = new HashMap<Product, Integer>();
+		if(session.getAttribute(CART_SESSION) != null)
+			sessionListProduct = (HashMap<Product, Integer>) session.getAttribute(CART_SESSION);
 		
 		// TODO: get listProduct from session here
 		sessionListProduct.put(productService.getProductById(productId), count);

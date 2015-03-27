@@ -11,18 +11,43 @@
 			<div class="wrap">
 			// TODO: List product with quality here -> table view
 			 <br/><br/>
-			
-			<c:choose>
-			    <c:when test="${not empty listProduct}">
-					<c:forEach var="product" items="${listProduct}">
-						Product name: <c:out value="${product.key.name}"/><br/>
-						Count: <c:out value="${product.value}"/>
-					</c:forEach>
-			    </c:when>
-			    <c:otherwise>
-			        Empty cart
-			    </c:otherwise>
-				</c:choose>
+
+				
+				<br /><br /><br />
+			// table view
+			<div class="cart-wrapper">
+				<div class="cart-top-title">Your Shopping Cart</div>
+				<div class="cart-body">
+					<table style="width:100%">
+						<tr class="cart-header">
+							<td>Thumbnail</td>
+							<td>Product</td>		
+							<td>Price</td>
+							<td>Quanlity</td>
+							<td>Amount</td>
+						</tr>
+						<tr><td>Empty cart</td></tr>
+					<c:choose>
+						<c:when test="${not empty listProduct}">
+						<tr>
+							<c:forEach var="product" items="${listProduct}">
+								<td>Thumbnail</td>
+								<td>${product.key.name}</td>		
+								<td>${product.key.price}</td>
+								<td>${product.value}</td>
+								<td>Amount</td>
+							</c:forEach>
+							</tr>
+					    </c:when>
+					    <c:otherwise>
+					        <tr><td>Empty cart</td></tr>
+					    </c:otherwise>
+					</c:choose>
+					
+					</table>
+				</div>
+			</div>
+				
 			</div>
 			</div>
 		

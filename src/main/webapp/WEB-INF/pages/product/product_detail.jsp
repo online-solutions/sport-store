@@ -143,6 +143,7 @@
 									<option>5</option>
 									<option>6</option>
 								</select>
+								<input type="number" name="quantity" min="1">
 							</ul>
 							<input type="button" value="add to cart" id="add_to_cart"/>
 							<ul class="product-share">
