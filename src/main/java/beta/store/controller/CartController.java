@@ -38,12 +38,12 @@ public class CartController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public @ResponseBody String addProductToSession(@RequestParam int productId, 
 			@RequestParam int count, HttpSession session){
+		Product currentProduct = productService.getProductById(productId);
 		Map<Product, Integer> sessionListProduct = new HashMap<Product, Integer>();
-		if(session.getAttribute(CART_SESSION) != null)
+		if(session.getAttribute(CART_SESSION) != null){
 			sessionListProduct = (HashMap<Product, Integer>) session.getAttribute(CART_SESSION);
-		
-		// TODO: get listProduct from session here
-		sessionListProduct.put(productService.getProductById(productId), count);
+		}
+		sessionListProduct.put(currentProduct, count);
 		session.setAttribute(CART_SESSION, sessionListProduct);
 		log.debug("productId = " + productId + "count = " + count);
 		return "true";
@@ -52,22 +52,28 @@ public class CartController {
 	@RequestMapping(value={"list","/", ""}, method=RequestMethod.GET)
 	public ModelAndView showAllProductInCart(HttpSession session){
 		ModelAndView mv = new ModelAndView("product/cart");
-		Map<Product, Integer> sessionListProduct = new HashMap<Product,Integer>();
-		sessionListProduct = (HashMap<Product, Integer>) session.getAttribute(CART_SESSION);
-		
-		// use for debug only
-		if(sessionListProduct != null){
-			Iterator iterator = sessionListProduct.entrySet().iterator();
-			while (iterator.hasNext()) {
-				Map.Entry mapEntry = (Map.Entry) iterator.next();
-				System.out.println("The key is: " + ((Product) mapEntry.getKey()).getName()
-					+ ",value is :" + mapEntry.getValue());
-			}
-		}
+//		Map<Product, Integer> sessionListProduct = new HashMap<Product,Integer>();
+//		sessionListProduct = (HashMap<Product, Integer>) session.getAttribute(CART_SESSION);
+//		
+//		// use for debug only
+//		if(sessionListProduct != null){
+//			Iterator iterator = sessionListProduct.entrySet().iterator();
+//			while (iterator.hasNext()) {
+//				Map.Entry mapEntry = (Map.Entry) iterator.next();
+//				System.out.println("The key is: " + ((Product) mapEntry.getKey()).getName()
+//					+ ",value is :" + mapEntry.getValue());
+//			}
+//		}
 		
 		mv.addObject("menus", menuService.getAllMenus());
-		mv.addObject("listProduct", sessionListProduct);
 		
+		return mv;
+	}
+	
+	@RequestMapping(value="checkout", method=RequestMethod.POST)
+	public ModelAndView checkOutCart(HttpSession session){
+		ModelAndView mv = new ModelAndView("product/checkout");
+		mv.addObject("menus", menuService.getAllMenus());
 		return mv;
 	}
 }

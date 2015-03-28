@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+<title>Sport Store :: Home</title>
 <jsp:include page="include/head.jsp"></jsp:include>
 	<!-- head -->
 	<body>

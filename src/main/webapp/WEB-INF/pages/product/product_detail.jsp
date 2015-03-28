@@ -2,16 +2,56 @@
 <fmt:setLocale value="en_US"/>
 <!DOCTYPE HTML>
 <html>
+<title>Sport Store :: Product Detail</title>
 <jsp:include page="../include/head.jsp"></jsp:include>
 <body>
 	<script>
 	$(function(){
-		$( "#add_to_cart" ).click(function() {
+		
+		$( "#add-to-cart" ).click(function() {
+			var cart = $('#clickme');
+	        var imgtodrag = $('li.etalage_small_thumbs ul li[style*="opacity: 1"] img');
+	        console.log(imgtodrag);
+	        if (imgtodrag) {
+	            var imgclone = imgtodrag.clone()
+	                .offset({
+	                top: imgtodrag.offset().top,
+	                left: imgtodrag.offset().left
+	            })
+	                .css({
+	                'opacity': '0.5',
+	                    'position': 'absolute',
+	                    'height': '150px',
+	                    'width': '150px',
+	                    'z-index': '100'
+	            })
+	                .appendTo($('body'))
+	                .animate({
+	                'top': cart.offset().top + 10,
+	                    'left': cart.offset().left + 10,
+	                    'width': 75,
+	                    'height': 75
+	            }, 1000, 'easeInOutExpo');
+	            
+	            setTimeout(function () {
+	                cart.effect("shake", {
+	                    times: 2
+	                }, 200);
+	            }, 1500);
+
+	            imgclone.animate({
+	                'width': 0,
+	                    'height': 0
+	            }, function () {
+	                $(this).detach()
+	            });
+	        }
+			
 			$.ajax({
 				type: "POST",
 				url: "<c:url value="/cart/add" />", 
 				data: ({productId : "${product.id}",
-					count: 2}),
+					count: $('#quantity').val()}),
 				success: function(result){
 		        console.log(result);
 		    }});
@@ -135,17 +175,15 @@
 							</ul>
 							<ul class="prosuct-qty">
 								<span>Quantity:</span>
-								<select>
+								<select id="quantity">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
 									<option>4</option>
 									<option>5</option>
-									<option>6</option>
 								</select>
-								<input type="number" name="quantity" min="1">
 							</ul>
-							<input type="button" value="add to cart" id="add_to_cart"/>
+							<input type="button" value="add to cart" id="add-to-cart"/>
 							<ul class="product-share">
 								<h3>All so Share On</h3>
 								<ul>
